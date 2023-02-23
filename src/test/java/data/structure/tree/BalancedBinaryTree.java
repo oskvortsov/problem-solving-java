@@ -23,11 +23,33 @@ public class BalancedBinaryTree {
         }
     }
 
-//    public boolean isBalanced(TreeNode root) {
-//
-//    }
-//
-//    public boolean deep(TreeNode node) {
-//
-//    }
+    public boolean isBalanced(TreeNode root) {
+        if (root == null) {
+            return true;
+        }
+
+        return balanceHeight(root) != -1;
+    }
+
+    public int balanceHeight(TreeNode node) {
+        if (node == null) {
+            return 0;
+        }
+
+        int leftTree = balanceHeight(node.left);
+        if (leftTree == -1) {
+            return -1;
+        }
+
+        int rightTree = balanceHeight(node.right);
+        if (rightTree == -1) {
+            return -1;
+        }
+
+        if (Math.abs(leftTree - rightTree) > 1) {
+            return -1;
+        }
+
+        return Math.max(leftTree, rightTree) + 1;
+    }
 }

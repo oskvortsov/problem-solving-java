@@ -373,4 +373,24 @@ class LinkedListsTasks {
 
         return result;
     }
+
+    public ListNode mergeNodes(ListNode head) {
+        ListNode fast = head.next;
+        ListNode slow = head;
+        int sum = 0;
+
+        while (fast != null) {
+            if (fast.val != 0) {
+                sum += fast.val;
+            } else {
+                slow.next.val = sum;
+                slow = slow.next;
+                sum = 0;
+            }
+            fast = fast.next;
+        }
+
+        slow.next = null;
+        return head.next;
+    }
 }
