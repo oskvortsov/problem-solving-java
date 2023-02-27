@@ -14,8 +14,10 @@ public class SerializeАndDeserializeBinaryTreeTest {
                 new TreeNode(3, new TreeNode(4), new TreeNode(5))
         );
 
-        assertThat(serialize.serialize(input)).isEqualTo("[1,2,3,null,null,4,5]");
+//        assertThat(serialize.serialize(input)).isEqualTo("[1,2,3,null,null,4,5]");
+        assertThat(serialize.serialize(input)).isEqualTo("1,2,#,#,3,4,#,#,5,#,#");
 //        assertThat(serialize.deserialize("[1,2,3,null,null,4,5]")).isEqualToIgnoringNullFields(input);
+//        assertThat(serialize.deserialize("1,2,#,#,3,4,#,#,5,#,#")).isEqualToIgnoringNullFields(input);
     }
 
     @Test()

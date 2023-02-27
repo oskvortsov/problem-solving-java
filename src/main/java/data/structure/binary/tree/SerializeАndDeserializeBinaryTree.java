@@ -4,8 +4,47 @@ import java.util.*;
 
 // https://leetcode.com/problems/serialize-and-deserialize-binary-tree/description/
 public class SerializeАndDeserializeBinaryTree {
+    private int indexDes;
     // Encodes a tree to a single string.
     public String serialize(TreeNode root) {
+        StringBuilder res = new StringBuilder();
+        preorderTraverse(root, res);
+        res.deleteCharAt(res.length() - 1);
+
+        return res.toString();
+    }
+
+    public void preorderTraverse(TreeNode node, StringBuilder sb) {
+        if (node == null) {
+            sb.append("#,");
+            return;
+        }
+
+        sb.append(node.val + ",");
+        preorderTraverse(node.left, sb);
+        preorderTraverse(node.right, sb);
+    }
+
+    public TreeNode deserialize(String data) {
+        String[] arr = data.split(",");
+        indexDes = 0;
+        return desPreorderTraverse(arr);
+    }
+
+    public TreeNode desPreorderTraverse(String[] arr) {
+        if (arr.length <= indexDes || arr[indexDes].equals("#")) {
+            indexDes++;
+            return null;
+        }
+
+        TreeNode node = new TreeNode(Integer.parseInt(arr[indexDes++]));
+        node.left = desPreorderTraverse(arr);
+        node.right = desPreorderTraverse(arr);
+
+        return node;
+    }
+
+    public String serialize1(TreeNode root) {
         List<Integer> res = new ArrayList<>();
         Queue<TreeNode> queue = new LinkedList<>();
 
@@ -34,7 +73,7 @@ public class SerializeАndDeserializeBinaryTree {
     }
 
     // Decodes your encoded data to tree.
-    public TreeNode deserialize(String data) {
+    public TreeNode deserialize2(String data) {
         Integer[] nums = fromString(data);
 
         if (nums.length == 0) {

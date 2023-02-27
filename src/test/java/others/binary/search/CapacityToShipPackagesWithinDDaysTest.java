@@ -1,6 +1,7 @@
-package topic.array;
+package others.binary.search;
 
 import org.junit.Test;
+import topic.binary.search.CapacityToShipPackagesWithinDDays;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 

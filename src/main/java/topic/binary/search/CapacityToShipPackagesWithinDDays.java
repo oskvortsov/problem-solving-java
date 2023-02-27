@@ -1,4 +1,4 @@
-package topic.array;
+package topic.binary.search;
 
 // https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/description/
 public class CapacityToShipPackagesWithinDDays {
