@@ -1,4 +1,4 @@
-package others;
+package topic.dynamic.programming;
 
 import java.util.Arrays;
 import java.util.HashSet;

@@ -1,6 +1,7 @@
 package others;
 
 import org.junit.Test;
+import topic.dynamic.programming.JumpGame2;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
