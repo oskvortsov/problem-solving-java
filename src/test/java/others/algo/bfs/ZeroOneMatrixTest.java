@@ -1,7 +1,7 @@
 package others.algo.bfs;
 
 import org.junit.Test;
-import topic.algo.bfs.ZeroOneMatrix;
+import topic.algo.bfs.dfs.ZeroOneMatrix;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class ZeroOneMatrixTest {

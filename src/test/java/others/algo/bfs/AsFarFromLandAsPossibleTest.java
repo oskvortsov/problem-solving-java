@@ -1,7 +1,7 @@
 package others.algo.bfs;
 
 import org.junit.Test;
-import topic.algo.bfs.AsFarFromLandAsPossible;
+import topic.algo.bfs.dfs.AsFarFromLandAsPossible;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 

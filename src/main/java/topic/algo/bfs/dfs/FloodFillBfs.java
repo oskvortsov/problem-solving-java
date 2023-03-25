@@ -1,4 +1,4 @@
-package topic.algo.bfs;
+package topic.algo.bfs.dfs;
 
 public class FloodFillBfs {
     private final int[][] STEPS = {

@@ -1,7 +1,7 @@
 package others.algo.bfs;
 
 import org.junit.Test;
-import topic.algo.bfs.PerfectSquares;
+import topic.algo.bfs.dfs.PerfectSquares;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

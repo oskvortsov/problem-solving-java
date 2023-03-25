@@ -1,7 +1,7 @@
 package others.algo.dfs;
 
 import org.junit.Test;
-import topic.algo.bfs.TargetSum;
+import topic.algo.bfs.dfs.TargetSum;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

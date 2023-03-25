@@ -1,4 +1,4 @@
-package topic.algo.bfs;
+package topic.algo.bfs.dfs;
 
 public class TargetSum {
     public int findTargetSumWays(int[] nums, int target) {

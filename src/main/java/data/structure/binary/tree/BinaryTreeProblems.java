@@ -165,4 +165,31 @@ public class BinaryTreeProblems {
 
         return res;
     }
+
+    public boolean isSymmetric(TreeNode root) {
+        if (root == null) {
+            return true;
+        }
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root.left);
+        queue.add(root.right);
+
+        while (!queue.isEmpty()) {
+            TreeNode L = queue.poll();
+            TreeNode R = queue.poll();
+
+            if (L == null && R == null) continue;
+            if (L == null || R == null) return false;
+            if (L.val != R.val) return false;
+
+            queue.add(L.left);
+            queue.add(R.right);
+
+            queue.add(L.right);
+            queue.add(R.left);
+        }
+
+        return true;
+    }
 }

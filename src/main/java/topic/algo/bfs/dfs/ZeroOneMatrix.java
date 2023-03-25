@@ -1,4 +1,4 @@
-package topic.algo.bfs;
+package topic.algo.bfs.dfs;
 
 import java.util.LinkedList;
 import java.util.Queue;
