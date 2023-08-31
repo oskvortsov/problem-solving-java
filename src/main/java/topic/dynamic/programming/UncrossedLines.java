@@ -1,4 +1,4 @@
-package topic.dynamic.programmic;
+package topic.dynamic.programming;
 
 public class UncrossedLines {
     public int maxUncrossedLines(int[] nums1, int[] nums2) {
