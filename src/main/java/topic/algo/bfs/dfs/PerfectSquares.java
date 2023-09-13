@@ -1,9 +1,9 @@
 package topic.algo.bfs.dfs;
 
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 
+// https://leetcode.com/problems/perfect-squares/description/?envType=study-plan-v2&envId=dynamic-programming
 public class PerfectSquares {
     public int numSquares(int n) {
         LinkedList<Integer> perfectSquares = new LinkedList<>();
