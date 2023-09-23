@@ -13,23 +13,21 @@ class MinStack {
 
     public void push(int val) {
         original.push(val);
-        if (minimal.size() > 0) {
-            minimal.push(Math.min(val, getMin()));
-        } else {
-            minimal.push(val);
-        }
+
+        int min = minimal.isEmpty() || minimal.peek() > val ? val : minimal.peek();
+        minimal.push(min);
     }
 
     public void pop() {
-        original.pop();
         minimal.pop();
+        original.pop();
     }
 
     public int top() {
-        return original.get(original.size() - 1);
+        return original.peek();
     }
 
     public int getMin() {
-        return minimal.get(minimal.size() - 1);
+        return minimal.peek();
     }
 }

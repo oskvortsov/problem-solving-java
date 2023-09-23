@@ -4,31 +4,23 @@ import java.util.Stack;
 
 public class ValidParentheses {
     public boolean isValid(String s) {
-        Stack<Character> openBrackets = new Stack<>();
+        Stack<Character> stack = new Stack<>();
 
-        for (char c : s.toCharArray()) {
+        for (char c: s.toCharArray()) {
             switch (c) {
-                case '[', '{', '(' -> openBrackets.push(c);
-                case ']' -> {
-                    if (openBrackets.isEmpty() || openBrackets.pop() != '[') {
-                        return false;
-                    }
-                }
+                case '{', '[', '(' -> stack.push(c);
                 case '}' -> {
-                    if (openBrackets.isEmpty() || openBrackets.pop() != '{') {
-                        return false;
-                    }
+                    if (stack.isEmpty() || stack.pop() != '{') return false;
+                }
+                case ']' -> {
+                    if (stack.isEmpty() || stack.pop() != '[') return false;
                 }
                 case ')' -> {
-                    if (openBrackets.isEmpty() || openBrackets.pop() != '(') {
-                        return false;
-                    }
+                    if (stack.isEmpty() || stack.pop() != '(') return false;
                 }
             }
         }
 
-        return openBrackets.isEmpty();
+        return stack.isEmpty();
     }
-
-
 }
