@@ -1,63 +1,69 @@
 package topic.binary.search;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 
 public class TimeBasedKeyValueStore {
-    private class Node {
-        private final String value;
+    private static class Node {
         private final int timestamp;
+        private final String value;
 
-        Node(String v, int t) {
-            value = v;
+        Node(int t, String v) {
             timestamp = t;
+            value = v;
         }
     }
 
-    HashMap<String, List<Node>> store;
+    private final HashMap<String, List<Node>> store;
 
     public TimeBasedKeyValueStore() {
         store = new HashMap<>();
     }
 
     public void set(String key, String value, int timestamp) {
+        Node node = new Node(timestamp, value);
         List<Node> list = store.getOrDefault(key, new ArrayList<>());
-        list.add(new Node(value, timestamp));
-        list.sort(Comparator.comparingInt((Node a) -> a.timestamp));
+        list.add(node);
 
         store.put(key, list);
     }
 
     public String get(String key, int timestamp) {
+        String res = "";
+
         if (store.isEmpty() || !store.containsKey(key)) {
-            return "";
+            return res;
         }
 
         List<Node> list = store.get(key);
-
         int l = 0, r = list.size() - 1;
 
-        if (timestamp < list.get(l).timestamp) return "";
-        if (timestamp >= list.get(r).timestamp) return list.get(r).value;
+        if (list.get(l).timestamp > timestamp) {
+            return res;
+        }
+
+        if (list.get(r).timestamp <= timestamp) {
+            return list.get(r).value;
+        }
 
         while (l <= r) {
             int mid = l + (r - l) / 2;
+            Node node = list.get(mid);
 
-            if (timestamp == list.get(mid).timestamp) {
-                return list.get(mid).value;
+            if (node.timestamp == timestamp) {
+                res = node.value;
+                break;
             }
 
-            if (timestamp > list.get(l).timestamp) {
+            if (node.timestamp < timestamp) {
+                res = node.value;
                 l = mid + 1;
             } else {
                 r = mid - 1;
             }
         }
 
-        if (r > -1) return list.get(r).value;
-
-        return "";
+        return res;
     }
 }

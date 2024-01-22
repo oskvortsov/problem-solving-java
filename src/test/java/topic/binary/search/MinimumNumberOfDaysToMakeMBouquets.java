@@ -1,4 +1,4 @@
-package others.binary.search;
+package topic.binary.search;
 
 // https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/
 public class MinimumNumberOfDaysToMakeMBouquets {

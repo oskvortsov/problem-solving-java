@@ -1,4 +1,4 @@
-package others.binary.search;
+package topic.binary.search;
 
 import org.junit.Test;
 import topic.binary.search.SearchA2DMatrix;

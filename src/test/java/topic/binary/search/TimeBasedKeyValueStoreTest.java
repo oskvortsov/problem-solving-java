@@ -1,4 +1,4 @@
-package others.binary.search;
+package topic.binary.search;
 
 import org.junit.Test;
 import topic.binary.search.TimeBasedKeyValueStore;
@@ -17,6 +17,19 @@ public class TimeBasedKeyValueStoreTest {
         timeMap.set("foo", "bar2", 4);
         assertThat(timeMap.get("foo", 4)).isEqualTo("bar2");
         assertThat(timeMap.get("foo", 5)).isEqualTo("bar2");
+
+    }
+
+    @Test
+    public void case2() {
+        TimeBasedKeyValueStore timeMap = new TimeBasedKeyValueStore();
+
+        timeMap.set("love", "high", 10);
+        timeMap.set("love", "low", 20);
+
+        assertThat(timeMap.get("love", 10)).isEqualTo("high");
+        assertThat(timeMap.get("love", 15)).isEqualTo("high");
+        assertThat(timeMap.get("love", 20)).isEqualTo("low");
 
     }
 }

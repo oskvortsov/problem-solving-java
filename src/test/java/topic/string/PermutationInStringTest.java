@@ -11,4 +11,10 @@ public class PermutationInStringTest {
         assertThat(pin.checkInclusion("adc", "dcda")).isTrue();
         assertThat(pin.checkInclusion("abc", "ccccbbbbaaaa")).isFalse();
     }
+
+    @Test()
+    public void case2() {
+        PermutationInString pin = new PermutationInString();
+        assertThat(pin.checkInclusion("ab", "eidbaooo")).isTrue();
+    }
 }
