@@ -21,5 +21,27 @@ public class SubsetsTwo {
             backtrack(result, tmpList, nums, i + 1);
             tmpList.remove(tmpList.size() - 1);
         }
-     }
+    }
+
+    public List<List<Integer>> subsetsWithDup2(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        Arrays.sort(nums);
+        result.add(List.of());
+        inorder(0, nums, result, List.of());
+
+        return result;
+    }
+
+    private void inorder(int start, int[] nums, List<List<Integer>> result, List<Integer> tmp) {
+        for (int i = start; i < nums.length; i++) {
+            if (i > start && nums[i] == nums[i - 1]) continue;
+
+            var list = new ArrayList<>(tmp);
+            list.add(nums[i]);
+
+            result.add(list);
+
+            inorder(i + 1, nums, result, list);
+        }
+    }
 }
