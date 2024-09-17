@@ -1,4 +1,4 @@
-package topic.grady;
+package topic.greedy;
 
 import java.util.ArrayList;
 import java.util.HashMap;

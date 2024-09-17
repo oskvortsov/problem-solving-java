@@ -1,7 +1,7 @@
-package data.structure.grady;
+package data.structure.greedy;
 
 import org.junit.Test;
-import topic.grady.ReducingDishes;
+import topic.greedy.ReducingDishes;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 

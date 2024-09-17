@@ -1,7 +1,6 @@
-package topic.grady;
+package topic.greedy;
 
 import java.util.Arrays;
-import java.util.List;
 
 public class ReducingDishes {
     public int maxSatisfaction(int[] satisfaction) {
